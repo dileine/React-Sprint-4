@@ -20,7 +20,6 @@ function moviesAverage(array) {
 function moviesAverageOfDirector(array, director) {
   director = getMoviesFromDirector(array, director);
   let averageOfDirector = moviesAverage(director);
-  q;
   return parseFloat(averageOfDirector.toFixed(2));
 }
 
@@ -33,7 +32,17 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear(array) {}
+function orderByYear(array) {
+  let sortedByYear = [...array].sort((a, b) => {
+    if (a.year > b.year) return 1;
+    if (a.year < b.year) return -1;
+
+    if (a.title > b.title) return 1;
+    if (a.title < b.title) return -1;
+  });
+
+  return sortedByYear;
+}
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {}
