@@ -58,7 +58,6 @@ function moviesAverageByCategory(array, category) {
 function hoursToMinutes(array) {
   let filmHours = array.map((film) => {
     let durationArray = film.duration.split(' ');
-    console.log(durationArray);
     let minutes =
       parseInt(durationArray[0]) * 60 + parseInt(durationArray[1] || 0);
     return { ...film, duration: minutes };
@@ -68,7 +67,15 @@ function hoursToMinutes(array) {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {}
+function bestFilmOfYear(array, year) {
+  let bestFilm = [
+    array
+      .filter((film) => film.year === year)
+      .sort((a, b) => b.score + a.score)[0]
+  ];
+
+  return bestFilm;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
